@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EduGenie — AI Powered Learning Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+
+            <span class="logo-icon">🧞</span>
+
+            <span class="logo-text">
+
+                EduGenie
+
+            </span>
+
+        </div>
+
+        <nav class="nav">
+
+            <a href="#ask">
+
+                Ask
+
+            </a>
+
+            <a href="#chat">
+
+                Chat
+
+            </a>
+
+            <a href="#quiz">
+
+                Quiz
+
+            </a>
+
+            <a href="#summary">
+
+                Summarize
+
+            </a>
+
+        </nav>
+
+        <div class="header-lang">
+
+            <label class="label">
+
+                🌐
+
+            </label>
+
+            <select
+                    id="global-lang"
+                    class="select select-sm">
+
+                <option value="English">
+
+                    English
+
+                </option>
+
+                <option value="Hindi">
+
+                    Hindi
+
+                </option>
+
+                <option value="Tamil">
+
+                    Tamil
+
+                </option>
+
+                <option value="Telugu">
+
+                    Telugu
+
+                </option>
+
+                <option value="Kannada">
+
+                    Kannada
+
+                </option>
+
+                <option value="French">
+
+                    French
+
+                </option>
+
+                <option value="German">
+
+                    German
+
+                </option>
+
+                <option value="Spanish">
+
+                    Spanish
+
+                </option>
+
+                <option value="Japanese">
+
+                    Japanese
+
+                </option>
+
+                <option value="Chinese">
+
+                    Chinese
+
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <p class="hero-eyebrow">
+
+            Google Gemini Powered
+
+        </p>
+
+        <h1 class="hero-title">
+
+            Your Personal
+
+            <br>
+
+            <span class="accent">
+
+                Learning Genie
+
+            </span>
+
+        </h1>
+
+        <p class="hero-sub">
+
+            Ask questions,
+
+            chat with AI,
+
+            generate quizzes,
+
+            summarize documents,
+
+            and learn smarter with Gemini AI.
+
+        </p>
+
+        <div class="hero-chips">
+
+            <span class="chip">
+
+                💬 Question Answering
+
+            </span>
+
+            <span class="chip">
+
+                🤖 AI Chat
+
+            </span>
+
+            <span class="chip">
+
+                📝 Quiz Generator
+
+            </span>
+
+            <span class="chip">
+
+                📄 Summarizer
+
+            </span>
+
+            <span class="chip">
+
+                📎 File Upload
+
+            </span>
+
+            <span class="chip">
+
+                🌐 Multilingual
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="hero-glow">
+
+    </div>
+
+</section>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+        <!-- ================= ASK AI ================= -->
+
+    <section class="card" id="ask">
+
+        <div class="card-header">
+
+            <span class="card-icon">
+
+                💬
+
+            </span>
+
+            <div>
+
+                <h2 class="card-title">
+
+                    Ask a Question
+
+                </h2>
+
+                <p class="card-desc">
+
+                    Get accurate answers from Gemini AI in your selected language.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <textarea
+
+                id="ask-input"
+
+                class="textarea"
+
+                rows="4"
+
+                placeholder="Example: Explain Machine Learning in simple words."
+
+            ></textarea>
+
+            <div class="row-space">
+
+                <span class="hint">
+
+                    Press Ctrl + Enter to submit
+
+                </span>
+
+                <button
+
+                    class="btn btn-primary"
+
+                    id="ask-btn"
+
+                    onclick="submitAsk()"
+
+                >
+
+                    <span class="btn-icon">
+
+                        ✨
+
+                    </span>
+
+                    <span class="btn-text">
+
+                        Get Answer
+
+                    </span>
+
+                    <span class="btn-loader hidden">
+
+                        Thinking...
+
+                    </span>
+
+                </button>
+
+            </div>
+
+            <div
+
+                id="ask-output"
+
+                class="output hidden"
+
+            >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ================= CHAT ================= -->
+
+    <section class="card"
+
+             id="chat">
+
+        <div class="card-header">
+
+            <span class="card-icon">
+
+                🤖
+
+            </span>
+
+            <div>
+
+                <h2 class="card-title">
+
+                    AI Chat
+
+                </h2>
+
+                <p class="card-desc">
+
+                    Chat with EduGenie in real time using streaming responses.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div
+
+                class="chat-window"
+
+                id="chat-window"
+
+            >
+
+                <div class="chat-welcome">
+
+                    👋 Hello!
+
+                    I'm EduGenie.
+
+                    Ask me anything about your studies.
+
+                </div>
+
+            </div>
+
+            <div class="chat-input-row">
+
+                <textarea
+
+                    id="chat-input"
+
+                    class="textarea textarea-chat"
+
+                    rows="2"
+
+                    placeholder="Type your message..."
+
+                ></textarea>
+
+                <div class="chat-actions">
+
+                    <button
+
+                        class="btn btn-primary"
+
+                        id="chat-btn"
+
+                        onclick="submitChat()"
+
+                    >
+
+                        <span class="btn-text">
+
+                            Send
+
+                        </span>
+
+                        <span class="btn-loader hidden">
+
+                            ...
+
+                        </span>
+
+                    </button>
+
+                    <button
+
+                        class="btn btn-ghost"
+
+                        onclick="clearChat()"
+
+                    >
+
+                        🗑️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ================= QUIZ GENERATOR ================= -->
+
+    <section class="card" id="quiz">
+
+        <div class="card-header">
+
+            <span class="card-icon">
+
+                📝
+
+            </span>
+
+            <div>
+
+                <h2 class="card-title">
+
+                    Generate a Quiz
+
+                </h2>
+
+                <p class="card-desc">
+
+                    Enter a topic or upload a PDF, DOCX, PPTX or Image to generate an MCQ quiz.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="tabs" id="quiz-tabs">
+
+                <button
+                    class="tab active"
+                    onclick="switchTab('quiz','topic')">
+
+                    📌 Topic
+
+                </button>
+
+                <button
+                    class="tab"
+                    onclick="switchTab('quiz','file')">
+
+                    📎 Upload File
+
+                </button>
+
+            </div>
+
+            <div id="quiz-topic-panel">
+
+                <input
+
+                    id="quiz-topic"
+
+                    class="input"
+
+                    type="text"
+
+                    placeholder="Example: Machine Learning"
+
+                >
+
+            </div>
+
+            <div
+
+                id="quiz-file-panel"
+
+                class="hidden"
+
+            >
+
+                <div
+
+                    class="file-drop"
+
+                    id="quiz-file-drop"
+
+                    onclick="document.getElementById('quiz-file').click()"
+
+                >
+
+                    <span class="file-drop-icon">
+
+                        📎
+
+                    </span>
+
+                    <span class="file-drop-text">
+
+                        Upload PDF / DOCX / PPTX / Image
+
+                    </span>
+
+                    <span
+
+                        class="file-drop-name hidden"
+
+                        id="quiz-file-name"
+
+                    >
+
+                    </span>
+
+                </div>
+
+                <input
+
+                    id="quiz-file"
+
+                    class="hidden"
+
+                    type="file"
+
+                    accept=".pdf,.docx,.pptx,.png,.jpg,.jpeg,.webp"
+
+                    onchange="handleFileSelect('quiz')"
+
+                >
+
+            </div>
+
+            <div class="row-space">
+
+                <span class="hint">
+
+                    Generates 5 MCQs
+
+                </span>
+
+                <button
+
+                    class="btn btn-primary"
+
+                    id="quiz-btn"
+
+                    onclick="submitQuiz()"
+
+                >
+
+                    <span class="btn-icon">
+
+                        🎯
+
+                    </span>
+
+                    <span class="btn-text">
+
+                        Generate Quiz
+
+                    </span>
+
+                    <span class="btn-loader hidden">
+
+                        Generating...
+
+                    </span>
+
+                </button>
+
+            </div>
+
+            <div
+
+                id="quiz-output"
+
+                class="output hidden"
+
+            >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ================= SUMMARIZER ================= -->
+
+    <section class="card"
+
+             id="summary">
+
+        <div class="card-header">
+
+            <span class="card-icon">
+
+                📄
+
+            </span>
+
+            <div>
+
+                <h2 class="card-title">
+
+                    Summarize Content
+
+                </h2>
+
+                <p class="card-desc">
+
+                    Paste text or upload a file to generate a concise summary.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="tabs">
+
+                <button
+
+                    class="tab active"
+
+                    onclick="switchTab('summary','text')"
+
+                >
+
+                    ✏️ Paste Text
+
+                </button>
+
+                <button
+
+                    class="tab"
+
+                    onclick="switchTab('summary','file')"
+
+                >
+
+                    📎 Upload File
+
+                </button>
+
+            </div>
+
+            <div id="summary-text-panel">
+
+                <textarea
+
+                    id="summary-content"
+
+                    class="textarea"
+
+                    rows="6"
+
+                    placeholder="Paste notes or article here..."
+
+                ></textarea>
+
+            </div>
+
+            <div
+
+                id="summary-file-panel"
+
+                class="hidden"
+
+            >
+
+                <div
+
+                    class="file-drop"
+
+                    onclick="document.getElementById('summary-file').click()"
+
+                >
+
+                    <span class="file-drop-icon">
+
+                        📎
+
+                    </span>
+
+                    <span class="file-drop-text">
+
+                        Upload PDF / DOCX / PPTX / Image
+
+                    </span>
+
+                    <span
+
+                        id="summary-file-name"
+
+                        class="file-drop-name hidden"
+
+                    >
+
+                    </span>
+
+                </div>
+
+                <input
+
+                    id="summary-file"
+
+                    class="hidden"
+
+                    type="file"
+
+                    accept=".pdf,.docx,.pptx,.png,.jpg,.jpeg,.webp"
+
+                    onchange="handleFileSelect('summary')"
+
+                >
+
+            </div>
+
+            <div class="row-space">
+
+                <span class="hint">
+
+                    Ctrl + Enter
+
+                </span>
+
+                <button
+
+                    class="btn btn-primary"
+
+                    id="summary-btn"
+
+                    onclick="submitSummary()"
+
+                >
+
+                    <span class="btn-icon">
+
+                        ⚡
+
+                    </span>
+
+                    <span class="btn-text">
+
+                        Summarize
+
+                    </span>
+
+                    <span class="btn-loader hidden">
+
+                        Working...
+
+                    </span>
+
+                </button>
+
+            </div>
+
+            <div
+
+                id="summary-output"
+
+                class="output hidden"
+
+            >
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+
+<footer class="footer">
+
+    <p>
+
+        Built with ❤️ using
+
+        <strong>Flask</strong>
+
+        +
+
+        <strong>Google Gemini</strong>
+
+        |
+
+        EduGenie Learning Assistant
+
+    </p>
+
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

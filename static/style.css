@@ -1,0 +1,1373 @@
+/* ==========================================================
+   EduGenie
+   Google Gemini Powered Learning Assistant
+   Global Styles
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#6366f1;
+    --primary-dark:#4f46e5;
+
+    --secondary:#8b5cf6;
+
+    --accent:#06b6d4;
+
+    --success:#10b981;
+
+    --danger:#ef4444;
+
+    --bg:#f4f7fb;
+
+    --card:#ffffff;
+
+    --border:#e5e7eb;
+
+    --text:#1f2937;
+
+    --text-light:#6b7280;
+
+    --shadow:
+        0 15px 40px
+        rgba(0,0,0,.08);
+
+    --radius:18px;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================================
+   Typography
+========================================================== */
+
+h1,
+h2,
+h3{
+
+    font-family:
+    "Space Grotesk",
+    sans-serif;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+img{
+
+    max-width:100%;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/* ==========================================================
+   Main Layout
+========================================================== */
+
+.main{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    padding:60px 0;
+
+}
+
+/* ==========================================================
+   Buttons
+========================================================== */
+
+.btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+}
+
+.btn-primary{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 12px 28px
+
+    rgba(99,102,241,.35);
+
+}
+
+.btn-ghost{
+
+    background:#f3f4f6;
+
+}
+
+.btn-ghost:hover{
+
+    background:#e5e7eb;
+
+}
+
+/* ==========================================================
+   Inputs
+========================================================== */
+
+.input,
+.textarea,
+.select{
+
+    width:100%;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:16px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.2s;
+
+    background:white;
+
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus{
+
+    border-color:
+
+    var(--primary);
+
+    box-shadow:
+
+    0 0 0 4px
+
+    rgba(99,102,241,.12);
+
+}
+
+.textarea{
+
+    resize:vertical;
+
+}
+
+.select-sm{
+
+    width:170px;
+
+}
+
+/* ==========================================================
+   Utility Classes
+========================================================== */
+
+.row-space{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:18px;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.hint{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+kbd{
+
+    background:#111827;
+
+    color:white;
+
+    border-radius:6px;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+/* ==========================================================
+   Output Box
+========================================================== */
+
+.output{
+
+    margin-top:22px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:#f9fafb;
+
+    border:1px solid var(--border);
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   Loader
+========================================================== */
+
+.btn-loader{
+
+    font-size:14px;
+
+    animation:
+
+    pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+opacity:.35;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.35;
+
+}
+
+}
+/* ==========================================================
+   Header
+========================================================== */
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:blur(14px);
+
+    background:rgba(255,255,255,.82);
+
+    border-bottom:1px solid rgba(229,231,235,.8);
+
+}
+
+.header-inner{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    height:78px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo-icon{
+
+    font-size:32px;
+
+}
+
+.logo-text{
+
+    font-size:28px;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.nav{
+
+    display:flex;
+
+    gap:32px;
+
+    align-items:center;
+
+}
+
+.nav a{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    transition:.25s;
+
+}
+
+.nav a:hover{
+
+    color:var(--primary);
+
+}
+
+.header-lang{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.label{
+
+    font-size:20px;
+
+}
+
+
+
+/* ==========================================================
+   Hero Section
+========================================================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:110px 0 90px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #ffffff,
+            #ecfeff
+        );
+
+}
+
+.hero-inner{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-eyebrow{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#eef2ff;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+.hero-title{
+
+    font-size:68px;
+
+    line-height:1.05;
+
+    margin-bottom:22px;
+
+    max-width:760px;
+
+}
+
+.accent{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary),
+            var(--accent)
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-sub{
+
+    font-size:20px;
+
+    color:var(--text-light);
+
+    max-width:760px;
+
+    line-height:1.8;
+
+    margin-bottom:42px;
+
+}
+
+
+
+/* ==========================================================
+   Feature Chips
+========================================================== */
+
+.hero-chips{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+}
+
+.chip{
+
+    background:white;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    border:1px solid var(--border);
+
+    font-size:14px;
+
+    font-weight:600;
+
+    box-shadow:
+
+        0 8px 24px
+
+        rgba(0,0,0,.05);
+
+    transition:.25s;
+
+}
+
+.chip:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 14px 28px
+
+        rgba(99,102,241,.18);
+
+}
+
+
+
+/* ==========================================================
+   Hero Glow
+========================================================== */
+
+.hero-glow{
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    right:-220px;
+
+    top:-220px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            rgba(99,102,241,.28),
+
+            transparent 70%
+
+        );
+
+    filter:blur(25px);
+
+}
+
+
+
+/* ==========================================================
+   Section Cards
+========================================================== */
+
+.card{
+
+    background:var(--card);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:42px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(229,231,235,.8);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding:28px 32px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.card-icon{
+
+    font-size:34px;
+
+}
+
+.card-title{
+
+    font-size:28px;
+
+    margin-bottom:6px;
+
+}
+
+.card-desc{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+.card-body{
+
+    padding:32px;
+
+}
+/* ==========================================================
+   Chat Window
+========================================================== */
+
+.chat-window{
+
+    height:420px;
+
+    overflow-y:auto;
+
+    background:#f9fafb;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    scroll-behavior:smooth;
+
+}
+
+.chat-window::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.chat-window::-webkit-scrollbar-thumb{
+
+    background:#d1d5db;
+
+    border-radius:50px;
+
+}
+
+.chat-window::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.chat-welcome{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    padding:45px 20px;
+
+    font-size:16px;
+
+}
+
+
+
+/* ==========================================================
+   Chat Messages
+========================================================== */
+
+.message{
+
+    max-width:82%;
+
+    padding:16px 20px;
+
+    border-radius:18px;
+
+    line-height:1.7;
+
+    word-break:break-word;
+
+    animation:fadeUp .25s ease;
+
+}
+
+.user-message{
+
+    margin-left:auto;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    var(--primary),
+
+    var(--secondary)
+
+    );
+
+    color:white;
+
+    border-bottom-right-radius:6px;
+
+}
+
+.bot-message{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-bottom-left-radius:6px;
+
+}
+
+.chat-input-row{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:20px;
+
+    align-items:flex-end;
+
+}
+
+.textarea-chat{
+
+    flex:1;
+
+    min-height:65px;
+
+}
+
+.chat-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+
+/* ==========================================================
+   Tabs
+========================================================== */
+
+.tabs{
+
+    display:flex;
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+}
+
+.tab{
+
+    border:none;
+
+    background:#f3f4f6;
+
+    border-radius:12px;
+
+    padding:12px 24px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.tab:hover{
+
+    background:#e5e7eb;
+
+}
+
+.tab.active{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    var(--primary),
+
+    var(--secondary)
+
+    );
+
+    color:white;
+
+}
+
+
+
+/* ==========================================================
+   File Upload
+========================================================== */
+
+.file-drop{
+
+    border:2px dashed #cbd5e1;
+
+    border-radius:18px;
+
+    background:#fafafa;
+
+    text-align:center;
+
+    padding:48px 25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.file-drop:hover{
+
+    border-color:var(--primary);
+
+    background:#eef2ff;
+
+}
+
+.file-drop-icon{
+
+    font-size:42px;
+
+    display:block;
+
+    margin-bottom:14px;
+
+}
+
+.file-drop-text{
+
+    display:block;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.file-drop-name{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:var(--success);
+
+    font-weight:700;
+
+}
+
+
+
+/* ==========================================================
+   Quiz Cards
+========================================================== */
+
+.question-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+
+    0 10px 25px
+
+    rgba(0,0,0,.04);
+
+}
+
+.question-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.option{
+
+    display:block;
+
+    margin:10px 0;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    background:#f9fafb;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    border:1px solid transparent;
+
+}
+
+.option:hover{
+
+    background:#eef2ff;
+
+    border-color:var(--primary);
+
+}
+
+.correct{
+
+    background:#dcfce7;
+
+    border-color:#22c55e;
+
+}
+
+.incorrect{
+
+    background:#fee2e2;
+
+    border-color:#ef4444;
+
+}
+
+
+
+/* ==========================================================
+   Fade Animation
+========================================================== */
+
+@keyframes fadeUp{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+/* ==========================================================
+   Footer
+========================================================== */
+
+.footer{
+
+    margin-top:80px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    border-top:1px solid var(--border);
+
+    background:white;
+
+}
+
+.footer strong{
+
+    color:var(--primary);
+
+}
+
+
+
+/* ==========================================================
+   Utility Classes
+========================================================== */
+
+.btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+.output h1,
+.output h2,
+.output h3{
+
+    margin:15px 0 10px;
+
+}
+
+.output ul,
+.output ol{
+
+    margin-left:20px;
+
+    margin-top:10px;
+
+}
+
+.output code{
+
+    background:#eef2ff;
+
+    padding:3px 6px;
+
+    border-radius:6px;
+
+}
+
+.output pre{
+
+    background:#111827;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    overflow:auto;
+
+}
+
+
+
+/* ==========================================================
+   Smooth Animations
+========================================================== */
+
+.card{
+
+    transition:
+
+    transform .25s,
+
+    box-shadow .25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 20px 45px
+
+    rgba(0,0,0,.08);
+
+}
+
+.btn{
+
+    transition:
+
+    transform .25s,
+
+    box-shadow .25s,
+
+    background .25s;
+
+}
+
+.file-drop{
+
+    transition:
+
+    .3s;
+
+}
+
+.file-drop:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.output{
+
+    animation:
+
+    fadeUp .3s ease;
+
+}
+
+
+
+/* ==========================================================
+   Responsive Design
+========================================================== */
+
+@media(max-width:992px){
+
+.hero-title{
+
+    font-size:52px;
+
+}
+
+.nav{
+
+    gap:18px;
+
+}
+
+.header-inner{
+
+    flex-wrap:wrap;
+
+    height:auto;
+
+    padding:18px 0;
+
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.hero{
+
+    padding:70px 0;
+
+}
+
+.hero-title{
+
+    font-size:40px;
+
+}
+
+.hero-sub{
+
+    font-size:17px;
+
+}
+
+.nav{
+
+    display:none;
+
+}
+
+.header-inner{
+
+    justify-content:space-between;
+
+}
+
+.card-header{
+
+    flex-direction:column;
+
+}
+
+.chat-input-row{
+
+    flex-direction:column;
+
+}
+
+.chat-actions{
+
+    flex-direction:row;
+
+    width:100%;
+
+}
+
+.chat-actions button{
+
+    flex:1;
+
+}
+
+.tabs{
+
+    flex-direction:column;
+
+}
+
+.row-space{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.select-sm{
+
+    width:100%;
+
+}
+
+.main{
+
+    width:95%;
+
+}
+
+}
+
+
+
+@media(max-width:480px){
+
+.hero-title{
+
+    font-size:32px;
+
+}
+
+.logo-text{
+
+    font-size:24px;
+
+}
+
+.card-body{
+
+    padding:22px;
+
+}
+
+.card-header{
+
+    padding:22px;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+.file-drop{
+
+    padding:35px 20px;
+
+}
+
+}
